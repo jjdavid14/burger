@@ -1,0 +1,36 @@
+<p class="text-center my-3"><img src="/assets/img/burger.png" alt="burger"></p>
+<h1 class="text-danger text-center my-3">Eat-Da-Burger!</h1>
+<div class="row">
+  <div class="col-6">
+    <form class="create-form text-center">
+      {{#each burgers}}
+        {{#unless devoured}}
+          <div class="form-group">
+            <textarea class="form-control d-inline w-50 m-0" rows="1" readonly>{{id}} {{burger_name}}</textarea>
+
+            <button class="change-devoured" data-id="{{id}}" data-newburger="1">
+              DEVOUR
+            </button>
+          </div>
+        {{/unless}}
+      {{/each}}
+    </form>
+  </div>
+  <div class="col-6">
+    <form class="create-form text-center">
+      {{#each burgers}}
+        {{#if devoured}}
+          <div class="form-group">
+            <input class="form-control w-50 mx-auto" type="text" placeholder="{{id}} {{burger_name}}" readonly>
+          </div>
+        {{/if}}
+      {{/each}}
+    </form>
+  </div>
+</div>
+<form class="create-form text-center">
+  <div class="form-group">
+    <input class="form-control-lg" type="text" id="burger" name="name">
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
